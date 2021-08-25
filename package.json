@@ -1,0 +1,9 @@
+{
+  "name": "url-short",
+  "version": "0.1.0",
+  "description": "URL Shortener",
+  "main": "index.ts",
+  "author": "William Darian",
+  "license": "MIT",
+  "private": true
+}
