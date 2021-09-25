@@ -5,12 +5,7 @@ export function validateIdCharacters(candidateId: string): boolean {
 }
 
 export function generateRandomId(): string {
-  const length = 5 + Math.floor(Math.random() * 4)
-  let id = ''
-
-  for (let i = 0; i < length; i++) {
-    id = id + ID_CHARACTER_SET[Math.floor(Math.random() * ID_CHARACTER_SET.length)]
-  }
-
-  return id
+  return new Array(5 + Math.floor(Math.random() * 4))
+    .map(() => ID_CHARACTER_SET[Math.floor(Math.random() * ID_CHARACTER_SET.length)])
+    .join('')
 }
