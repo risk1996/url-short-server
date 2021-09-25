@@ -2,9 +2,10 @@ import { Sequelize } from 'sequelize'
 import Urls, { CreateUrlsModelAttributes } from '../models/Urls'
 
 export default class DatabaseService {
-  private connection!: Sequelize;
+  private connection!: Sequelize
+  private static service: DatabaseService
 
-  public constructor() {
+  private constructor() {
     try {
       this.connection = new Sequelize({
         dialect: 'sqlite',
@@ -17,6 +18,14 @@ export default class DatabaseService {
     } catch {
       console.error("DB connection failure")
     }
+  }
+
+  public static get instance(): DatabaseService {
+    if (this.service === undefined) {
+      this.service = new DatabaseService()
+    }
+
+    return this.service
   }
 
   private initializeModels(): void {
