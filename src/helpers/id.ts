@@ -6,6 +6,7 @@ export function validateIdCharacters(candidateId: string): boolean {
 
 export function generateRandomId(): string {
   return new Array(5 + Math.floor(Math.random() * 4))
+    .fill('')
     .map(() => ID_CHARACTER_SET[Math.floor(Math.random() * ID_CHARACTER_SET.length)])
     .join('')
 }
